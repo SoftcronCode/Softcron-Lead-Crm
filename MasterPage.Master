@@ -1,0 +1,559 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="DSERP_Client_UI.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Softcron Lead CRM</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- [Favicon] icon -->
+    <link rel="icon" href="/assets/img/favicon.svg" type="image/x-icon" />
+
+        <!-- [Font Family] -->
+    <link rel="stylesheet" href="/assets/css/inter.css" id="main_font_link" />
+
+    <!-- [Font Awesome Icons] https://fontawesome.com/icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- [Toastr Files] -->
+    <link media="screen" rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script type="text/javascript" src="/assets/js/toastr-msg.js"></script>
+
+
+    <!-- [Template CSS Files] -->
+    <link rel="stylesheet" href="/assets/css/style.css" id="main_style_link" />
+    <link rel="stylesheet" href="/assets/css/style-preset.css" />
+
+    <!-- [Jquery DataTable CSS Files] -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/searchbuilder/1.6.0/css/searchBuilder.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.5.1/css/dataTables.dateTime.min.css" />
+
+    <!-- [Multi ListBox Select] -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css">
+
+
+<%--    <asp:PlaceHolder runat="server">
+        <%: System.Web.Optimization.Styles.Render("~/bundles/WebFormsCss") %>
+    </asp:PlaceHolder>--%>
+
+
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+        <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+    <script src="/assets/js/popper.min.js"></script>
+    <script src="/assets/js/simplebar.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/bootstrap-select.min.js"></script>
+    <script src="/assets/js/feather.min.js"></script>
+    <script src="/assets/js/custom-font.js"></script>
+    <script src="/assets/js/pcoded.js"></script>
+
+</head>
+<body>
+
+    <!-- [ Pre-loader ] start -->
+    <div id="preloader">
+        <div id="spinner"></div>
+    </div>
+    <!-- [ Pre-loader ] End -->
+
+    <form id="form1" runat="server">
+        <nav class="pc-sidebar">
+            <div class="navbar-wrapper">
+                <div class="m-header justify-content-center">
+                    <a href="#" class="b-brand text-primary">
+                        <!-- ========   Change logo from here   ============ -->
+                        <%--<img src="/assets/img/logo.png" height="50" width="198">--%>
+                        <img src="/assets/img/getmyca-logo.png" height="60" width="150">
+                    </a>
+                </div>
+                <div class="navbar-content pc-trigger" data-simplebar="init">
+                    <div class="simplebar-wrapper" style="margin: -10px 0px;">
+                        <div class="simplebar-height-auto-observer-wrapper">
+                            <div class="simplebar-height-auto-observer"></div>
+                        </div>
+                        <div class="simplebar-mask">
+                            <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
+                                <div class="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content" style="height: 100%; overflow: hidden scroll;">
+                                    <div class="simplebar-content" style="padding: 10px 0px;">
+                                        <div class="card pc-user-card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="flex-shrink-0">
+                                                        <img src="/assets/img/avatar-1.jpg" alt="user-image" class="user-avtar wid-45 rounded-circle">
+                                                    </div>
+                                                    <div class="flex-grow-1 ms-3 me-2">
+                                                        <h6 class="mb-0">
+                                                            <asp:Label ID="Label_username" CssClass="text-capitalize" runat="server" Text=""></asp:Label></h6>
+                                                        <small>Administrator</small>
+                                                    </div>
+                                                    <a class="btn btn-icon btn-link-secondary avtar-s" data-bs-toggle="collapse" href="#pc_sidebar_userlink">
+                                                        <svg class="pc-icon">
+                                                            <use xlink:href="#custom-sort-outline"></use>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                                <div class="collapse pc-user-links" id="pc_sidebar_userlink">
+                                                    <div class="pt-3">
+                                                        <a href="#!">
+                                                            <i class="fa-regular fa-user"></i>
+                                                            <span>My Account</span>
+                                                        </a>
+                                                        <a href="#!">
+                                                            <i class="fa-solid fa-gear"></i>
+                                                            <span>Settings</span>
+                                                        </a>
+                                                        <a href="#!">
+                                                            <i class="fa-solid fa-lock"></i>
+                                                            <span>Lock Screen</span>
+                                                        </a>
+                                                        <a href="#!">
+                                                            <i class="fa-solid fa-power-off"></i>
+                                                            <span>Logout</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <ul class="pc-navbar" id="MenuList" runat="server" style="display: block;">
+                                            <li class="pc-item pc-caption">
+                                                <label>Navigation</label>
+                                            </li>
+                                            <li class="pc-item pc-hasmenu">
+                                                <a href="/dashboard" class="pc-link">
+                                                    <span class="pc-micon">
+                                                        <svg class="pc-icon">
+                                                            <use xlink:href="#custom-status-up"></use>
+                                                        </svg>
+                                                    </span>
+                                                    <span class="pc-mtext">Dashboard</span>
+                                                </a>
+                                            </li>
+
+                                            <!-- User Managment Menu Start -->
+                                            <li class="pc-item pc-hasmenu" runat="server" id="manage_user">
+                                                <a href="#!" class="pc-link">
+                                                    <span class="pc-micon">
+                                                        <svg class="pc-icon">
+                                                            <use xlink:href="#custom-document"></use>
+                                                        </svg>
+                                                    </span>
+                                                    <span class="pc-mtext">User Managment</span>
+                                                    <span class="pc-arrow">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                                                            <polyline points="9 18 15 12 9 6"></polyline></svg></span>
+                                                </a>
+                                                <ul class="pc-submenu" style="display: none;">
+                                                    <li class="pc-item"><a class="pc-link" href="/create-user">Create User</a></li>
+                                                    <li class="pc-item">
+                                                        <asp:LinkButton ID="btnTable" runat="server" CssClass="pc-link" OnClick="btnMenu_Click"
+                                                            CommandArgument="group_master,9013,181,83,group-master,1,Group Master"> <!--tableName ,clientMasterID, tableCode, extensionTableId, Url., default, TableAliasName  // write according to Database Table. -->
+                                                            <span>Group Master</span>
+                                                        </asp:LinkButton>
+                                                    </li>
+                                                    <li class="pc-item"><a class="pc-link" href="/form-grouping">Form Grouping</a></li>
+                                                    <li class="pc-item"><a class="pc-link" href="/assign-group">Assign Group</a></li>
+                                                </ul>
+                                            </li>
+
+
+
+
+
+                                            <asp:Repeater ID="OuterRepeater" runat="server" OnItemDataBound="OuterRepeater_ItemDataBound">
+                                                <ItemTemplate>
+                                                    <li class="pc-item pc-hasmenu">
+                                                        <a href="#" class="pc-link">
+                                                            <span class="pc-micon">
+                                                                <svg class="pc-icon">
+                                                                    <use xlink:href="#custom-user-square"></use>
+                                                                </svg>
+                                                            </span>
+                                                            <span class="pc-mtext"><%# Eval("group_name") %></span><span class="pc-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg></span></a>
+
+                                                        <ul class="pc-submenu" style="display: none;">
+                                                            <asp:Repeater ID="InnerRepeater" runat="server">
+                                                                <ItemTemplate>
+                                                                    <li class="pc-item">
+                                                                        <asp:LinkButton ID="btnTable" runat="server" CssClass="pc-link" OnClick="btnTable_Click"
+                                                                            CommandArgument='<%# string.Format("{0}|{1}|{2}|{3}|{4}|{5}|{6}", Eval("TableName"), Eval("ClientMasterID"), Eval("TableCode"), Eval("ExtensionTableID"), Eval("Url"), Eval("Is_Default"), Eval("AliasName"))%>'>
+
+                                                                        <span ExtTableid='<%# Eval("ExtensionTableID") %>' cmid='<%# Eval("ClientMasterID") %>' id='<%# Eval("TableCode") %>' name="<%# Eval("TableName") %>" url="<%# Eval("Url") %>" default="<%# Eval("Is_Default") %>"><%# Eval("AliasName") %></span>
+                                                                        </asp:LinkButton>
+
+                                                                    </li>
+                                                                </ItemTemplate>
+                                                            </asp:Repeater>
+                                                        </ul>
+                                                    </li>
+                                                </ItemTemplate>
+                                            </asp:Repeater>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="simplebar-placeholder" style="width: auto; height: 2380px;"></div>
+                    </div>
+                    <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;">
+                        <div class="simplebar-scrollbar" style="width: 0px; display: none;"></div>
+                    </div>
+                    <div class="simplebar-track simplebar-vertical" style="visibility: visible;">
+                        <div class="simplebar-scrollbar" style="height: 172px; transform: translate3d(0px, 0px, 0px); display: block;"></div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+        <!--================= [Header Start] ======================= -->
+        <header class="pc-header">
+            <div class="header-wrapper">
+                <!-- [Mobile Media Block] start -->
+                <div class="me-auto pc-mob-drp">
+                    <ul class="list-unstyled">
+                        <!-- ======= [Menu collapse Icon] ===== -->
+                        <li class="pc-h-item pc-sidebar-collapse">
+                            <a href="#" class="pc-head-link ms-0" id="sidebar-hide">
+                                <i class="fa-solid fa-bars-staggered"></i>
+                            </a>
+                        </li>
+                        <li class="pc-h-item pc-sidebar-popup">
+                            <a href="#" class="pc-head-link ms-0" id="mobile-collapse">
+                                <i class="fa-solid fa-bars-staggered"></i>
+                            </a>
+                        </li>
+                        <li class="dropdown pc-h-item">
+                            <a class="pc-head-link dropdown-toggle arrow-none m-0 trig-drp-search" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                <svg class="pc-icon">
+                                    <use xlink:href="#custom-search-normal-1"></use>
+                                </svg>
+                            </a>
+                            <div class="dropdown-menu pc-h-dropdown drp-search">
+                                <div class="px-3 py-2">
+                                    <input type="search" class="form-control border-0 shadow-none" placeholder="Search here. . .">
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- [Mobile Media Block end] -->
+                <div class="ms-auto">
+                    <ul class="list-unstyled">
+                        <li class="dropdown pc-h-item">
+                            <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                <svg class="pc-icon">
+                                    <use xlink:href="#custom-sun-1"></use>
+                                </svg>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end pc-h-dropdown">
+                                <a href="#!" class="dropdown-item" onclick="layout_change('dark')">
+                                    <svg class="pc-icon">
+                                        <use xlink:href="#custom-moon"></use>
+                                    </svg>
+                                    <span>Dark</span>
+                                </a>
+                                <a href="#!" class="dropdown-item" onclick="layout_change('light')">
+                                    <svg class="pc-icon">
+                                        <use xlink:href="#custom-sun-1"></use>
+                                    </svg>
+                                    <span>Light</span>
+                                </a>
+                                <a href="#!" class="dropdown-item" onclick="layout_change_default()">
+                                    <svg class="pc-icon">
+                                        <use xlink:href="#custom-setting-2"></use>
+                                    </svg>
+                                    <span>Default</span>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="dropdown pc-h-item">
+                            <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                <svg class="pc-icon">
+                                    <use xlink:href="#custom-setting-2"></use>
+                                </svg>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end pc-h-dropdown">
+                                <a href="#!" class="dropdown-item">
+                                    <i class="fa-regular fa-user"></i>
+                                    <span>My Account</span>
+                                </a>
+                                <a href="#!" class="dropdown-item">
+                                    <i class="fa-solid fa-gear"></i>
+                                    <span>Settings</span>
+                                </a>
+                                <a href="#!" class="dropdown-item">
+                                    <i class="fa-solid fa-headset"></i>
+                                    <span>Support</span>
+                                </a>
+                                <a href="#!" class="dropdown-item">
+                                    <i class="fa-solid fa-lock"></i>
+                                    <span>Lock Screen</span>
+                                </a>
+                                <a href="#!" class="dropdown-item">
+                                    <i class="fa-solid fa-power-off"></i>
+                                    <span>Logout</span>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="dropdown pc-h-item">
+                            <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                <svg class="pc-icon">
+                                    <use xlink:href="#custom-notification"></use>
+                                </svg>
+                                <span id="notification_badge" runat="server" class="badge bg-success pc-h-badge" style="display: none;">
+                                    <asp:Label ID="notification_count" runat="server" Text=""></asp:Label></span>
+                            </a>
+
+
+                            <div class="dropdown-menu dropdown-notification dropdown-menu-end pc-h-dropdown" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(0px, 61px);">
+                                <div class="dropdown-header d-flex align-items-center justify-content-between">
+                                    <h5 class="m-0">Notifications</h5>
+                                    <asp:LinkButton ID="mark_all_read_btn" runat="server" CssClass="btn btn-link btn-sm" Text="Mark all read" OnClick="mark_all_read_btn_Click"></asp:LinkButton>
+                                </div>
+                                <div class="dropdown-body text-wrap header-notification-scroll position-relative" style="max-height: calc(80vh - 215px);" data-simplebar="init">
+                                    <div class="simplebar-wrapper" style="margin: -16px -20px;">
+                                        <div class="simplebar-height-auto-observer-wrapper">
+                                            <div class="simplebar-height-auto-observer"></div>
+                                        </div>
+                                        <div class="simplebar-mask">
+                                            <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
+                                                <div class="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content" style="height: auto; overflow: hidden scroll;">
+                                                    <div class="simplebar-content" style="padding: 16px 20px;">
+                                                        <p class="text-span">Today</p>
+                                                        <asp:Repeater ID="NotificationRepeater" runat="server">
+                                                            <ItemTemplate>
+                                                                <div class="card mb-2">
+                                                                    <div class="card-body">
+                                                                        <div class="d-flex">
+                                                                            <div class="flex-grow-1">
+                                                                                <span class="float-end text-sm text-muted" data-bs-toggle="tooltip" data-bs-placement="top" title='<%# Eval("followup_date") %>' style="cursor: pointer;">
+                                                                                    <%# CalculateTimeDifference(Eval("followup_date")) %>
+                                                                                </span>
+                                                                                <h5 class="text-body mb-2 capitalize-text">New Reminder For <%# Eval("first_name") %></h5>
+                                                                                <p class="mb-0 capitalize-text">- <%# Eval("followup_text") %></p>
+                                                                                <asp:LinkButton ID="clear_notification_btn" runat="server" CssClass="btn btn-link link-danger btn-sm float-end" Text="Clear" CommandArgument='<%# Eval("lead_followupID") %>' OnClick="clear_notification_btn_Click"></asp:LinkButton>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </ItemTemplate>
+                                                        </asp:Repeater>
+                                                        <script type="text/javascript">
+                                                            document.addEventListener('DOMContentLoaded', function () {
+                                                                var tooltips = new bootstrap.Tooltip(document.body, {
+                                                                    selector: '[data-bs-toggle="tooltip"]'
+                                                                });
+                                                            });
+                                                        </script>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="simplebar-placeholder" style="width: auto; height: 896px;"></div>
+                                    </div>
+                                    <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;">
+                                        <div class="simplebar-scrollbar" style="width: 0px; display: none;"></div>
+                                    </div>
+                                    <div class="simplebar-track simplebar-vertical" style="visibility: visible;">
+                                        <div class="simplebar-scrollbar" style="height: 336px; display: block; transform: translate3d(0px, 0px, 0px);"></div>
+                                    </div>
+                                </div>
+                                <div class="text-center py-2">
+                                    <a href="/all-notification" class="link-danger">Show all Notifications</a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="dropdown pc-h-item header-user-profile">
+                            <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" data-bs-auto-close="outside" aria-expanded="false">
+                                <img src="/assets/img/avatar-1.jpg" alt="user-image" class="user-avtar">
+                            </a>
+                            <div class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown">
+                                <div class="dropdown-header d-flex align-items-center justify-content-between">
+                                    <h5 class="m-0">Profile</h5>
+                                </div>
+                                <div class="dropdown-body">
+                                    <div class="profile-notification-scroll position-relative" style="max-height: calc(100vh - 225px)" data-simplebar="init">
+                                        <div class="simplebar-wrapper" style="margin: 0px;">
+                                            <div class="simplebar-height-auto-observer-wrapper">
+                                                <div class="simplebar-height-auto-observer"></div>
+                                            </div>
+                                            <div class="simplebar-mask">
+                                                <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
+                                                    <div class="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content" style="height: auto; overflow: hidden;">
+                                                        <div class="simplebar-content" style="padding: 0px;">
+                                                            <div class="d-flex mb-1">
+                                                                <div class="flex-shrink-0">
+                                                                    <img src="../assets/img/avatar-1.jpg" alt="user-image" class="user-avtar wid-35">
+                                                                </div>
+                                                                <div class="flex-grow-1 ms-3">
+                                                                    <h6 class="mb-1">
+                                                                        <asp:Label ID="Label_uname" CssClass="text-capitalize" runat="server" Text=""></asp:Label>
+                                                                        🖖</h6>
+                                                                </div>
+                                                            </div>
+                                                            <hr class="border-secondary border-opacity-50">
+                                                            <div class="card">
+                                                                <div class="card-body py-3">
+                                                                    <div class="d-flex align-items-center justify-content-between">
+                                                                        <h5 class="mb-0 d-inline-flex align-items-center">
+                                                                            <svg class="pc-icon text-muted me-2">
+                                                                                <use xlink:href="#custom-notification-outline"></use></svg>Notification</h5>
+                                                                        <div class="form-check form-switch form-check-reverse m-0">
+                                                                            <input class="form-check-input f-18" type="checkbox" role="switch">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <p class="text-span">Manage</p>
+                                                            <a href="#" class="dropdown-item">
+                                                                <span>
+                                                                    <svg class="pc-icon text-muted me-2">
+                                                                        <use xlink:href="#custom-setting-outline"></use>
+                                                                    </svg>
+                                                                    <span>Settings</span>
+                                                                </span>
+                                                            </a>
+                                                            <a href="#" class="dropdown-item">
+                                                                <span>
+                                                                    <svg class="pc-icon text-muted me-2">
+                                                                        <use xlink:href="#custom-share-bold"></use>
+                                                                    </svg>
+                                                                    <span>Share</span>
+                                                                </span>
+                                                            </a>
+                                                            <a href="#" class="dropdown-item">
+                                                                <span>
+                                                                    <svg class="pc-icon text-muted me-2">
+                                                                        <use xlink:href="#custom-lock-outline"></use>
+                                                                    </svg>
+                                                                    <span>Change Password</span>
+                                                                </span>
+                                                            </a>
+                                                            <hr class="border-secondary border-opacity-50">
+                                                            <div class="d-grid mb-3">
+                                                                <asp:Button ID="btnLogout" runat="server" CssClass="btn btn-primary" Text="Logout" OnClick="BtnLogout_Click" AutoPostBack="false" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="simplebar-placeholder" style="width: 0px; height: 0px;"></div>
+                                        </div>
+                                        <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;">
+                                            <div class="simplebar-scrollbar" style="width: 0px; display: none;"></div>
+                                        </div>
+                                        <div class="simplebar-track simplebar-vertical" style="visibility: hidden;">
+                                            <div class="simplebar-scrollbar" style="height: 0px; display: none;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <!--================= [Header End] ========================= -->
+
+
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+
+        <!--================= [Footer Start] ============================== -->
+        <footer class="pc-footer">
+            <div class="footer-wrapper container-fluid">
+                <div class="row">
+                    <div class="col my-1 text-center">
+                        <%--<p class="m-0">Copyright © <a href="https://www.softcron.com/">Softcron Technology</a></p>--%>
+                        <p class="m-0">Copyright © <a href="https://www.getmyca.com/">GetmyCA</a></p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!--================= [Footer End] ============================== -->
+    </form>
+
+
+
+
+
+    <script>
+        function showPreloader() {
+            document.getElementById('preloader').classList.remove('hidden');
+        }
+
+        function hidePreloader() {
+            document.getElementById('preloader').classList.add('hidden');
+        }
+
+        // Add an event listener for the 'load' event
+        window.addEventListener('load', function () {
+            hidePreloader();
+        });
+
+        // Add an event listener for the 'beforeunload' event
+        window.addEventListener('beforeunload', function () {
+            hidePreloader();
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+<%--        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script type="text/javascript" src="/assets/js/toastr-msg.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+    <script src="/assets/js/popper.min.js"></script>
+    <script src="/assets/js/simplebar.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/bootstrap-select.min.js"></script>
+    <script src="/assets/js/feather.min.js"></script>
+    <script src="/assets/js/custom-font.js"></script>
+    <script src="/assets/js/pcoded.js"></script>--%>
+
+    <!-- [Jquery DataTable JavaScript] -->
+    <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/searchbuilder/1.6.0/js/dataTables.searchBuilder.min.js"></script>
+    <script src="https://cdn.datatables.net/datetime/1.5.1/js/dataTables.dateTime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
+
+
+<%--    <asp:PlaceHolder runat="server">
+        <%: System.Web.Optimization.Scripts.Render("~/bundles/WebFormsJs") %>
+    </asp:PlaceHolder>--%>
+
+
+
+
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+    </asp:ContentPlaceHolder>
+
+</body>
+</html>
