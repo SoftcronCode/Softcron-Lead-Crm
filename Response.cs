@@ -57,6 +57,8 @@ namespace DSERP_Client_UI
         public string State { get; set; }
     }
    
-    public class abc { }
+    public class abc {
+        public string MyProperty { get; set; }
+    }
 
 }
