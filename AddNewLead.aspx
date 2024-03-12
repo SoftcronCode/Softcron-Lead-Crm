@@ -150,7 +150,7 @@
                                     <div class="form-group col-md-4">
                                         <label class="form-label" for="name">First Name :</label>
                                         <asp:TextBox ID="TextBox_fname" runat="server" class="form-control" placeholder="Enter First Name" />
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox_fname" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Enter First Name" ForeColor="Red" CssClass="absolute-position"></asp:RequiredFieldValidator>
+                                        <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox_fname" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Enter First Name" ForeColor="Red" CssClass="absolute-position"></asp:RequiredFieldValidator>--%>
                                     </div>
 
                                     <div class="form-group col-md-4">
@@ -161,21 +161,22 @@
                                     <div class="form-group col-md-4">
                                         <label class="form-label" for="name">Email ID :</label>
                                         <asp:TextBox ID="TextBox_email" runat="server" class="form-control" placeholder="Enter Email" />
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox_email" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Select a value" ForeColor="Red" CssClass="absolute-position"></asp:RequiredFieldValidator>
+                                        <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox_email" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Select a value" ForeColor="Red" CssClass="absolute-position"></asp:RequiredFieldValidator>--%>
                                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TextBox_email" ValidationGroup="Group1" ErrorMessage="Invalid email format" Display="Dynamic" ForeColor="Red" CssClass="absolute-position" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                                     </div>
 
                                     <div class="form-group col-md-4">
                                         <label class="form-label" for="name">Phone No. :</label>
                                         <asp:TextBox ID="TextBox_phone" runat="server" class="form-control" placeholder="Enter Phone" />
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBox_phone" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Enter Phone Number" ForeColor="Red" CssClass="absolute-position"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="TextBox_phone" ValidationGroup="Group1" ErrorMessage="Please add 10-digit phone number" Display="Dynamic" ForeColor="Red" CssClass="absolute-position" ValidationExpression="^\d{10}$"></asp:RegularExpressionValidator>
+                                       <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBox_phone" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Enter Phone Number" ForeColor="Red" CssClass="absolute-position"></asp:RequiredFieldValidator>--%>
                                     </div>
 
 
                                     <div class="form-group col-md-4">
                                         <label class="form-label" for="name">Company Name:</label>
                                         <asp:TextBox ID="TextBox_companyname" runat="server" class="form-control" placeholder="Enter Company Name" />
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TextBox_companyname" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Enter Company Name" ForeColor="Red" CssClass="absolute-position"></asp:RequiredFieldValidator>
+                                        <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TextBox_companyname" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Enter Company Name" ForeColor="Red" CssClass="absolute-position"></asp:RequiredFieldValidator>--%>
                                     </div>
 
                                     <div class="form-group col-md-4">
@@ -186,13 +187,13 @@
                                     <div class="form-group col-lg-4">
                                         <label class="form-label">Service :</label>
                                         <asp:DropDownList ID="ddl_service" Class="form-select" runat="server" AutoPostBack="false"></asp:DropDownList>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="ddl_service" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Select a value" ForeColor="Red" CssClass="absolute-position" InitialValue="0"></asp:RequiredFieldValidator>
+                                        <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="ddl_service" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Select a value" ForeColor="Red" CssClass="absolute-position" InitialValue="0"></asp:RequiredFieldValidator>--%>
                                     </div>
 
                                     <div class="form-group col-lg-4">
                                         <label class="form-label">Service Type :</label>
                                         <asp:DropDownList ID="ddl_serviceType" Class="form-select" runat="server" AutoPostBack="false"></asp:DropDownList>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="ddl_serviceType" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Select a value" ForeColor="Red" CssClass="absolute-position" InitialValue="0"></asp:RequiredFieldValidator>
+                                        <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="ddl_serviceType" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Select a value" ForeColor="Red" CssClass="absolute-position" InitialValue="0"></asp:RequiredFieldValidator>--%>
                                     </div>
 
                                     <div class="form-group col-md-4">

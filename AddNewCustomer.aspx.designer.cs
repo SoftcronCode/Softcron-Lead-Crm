@@ -96,15 +96,6 @@ namespace DSERP_Client_UI
         protected global::System.Web.UI.WebControls.TextBox TextBox_firstName;
 
         /// <summary>
-        /// RequiredFieldValidator1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
-
-        /// <summary>
         /// TextBox_lastName control.
         /// </summary>
         /// <remarks>
@@ -114,15 +105,6 @@ namespace DSERP_Client_UI
         protected global::System.Web.UI.WebControls.TextBox TextBox_lastName;
 
         /// <summary>
-        /// RequiredFieldValidator15 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator15;
-
-        /// <summary>
         /// TextBox_email control.
         /// </summary>
         /// <remarks>
@@ -130,15 +112,6 @@ namespace DSERP_Client_UI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox_email;
-
-        /// <summary>
-        /// RequiredFieldValidator3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
 
         /// <summary>
         /// RegularExpressionValidator1 control.
@@ -159,13 +132,13 @@ namespace DSERP_Client_UI
         protected global::System.Web.UI.WebControls.TextBox TextBox_phone;
 
         /// <summary>
-        /// RequiredFieldValidator2 control.
+        /// RegularExpressionValidator2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
 
         /// <summary>
         /// ddl_gender control.
@@ -177,15 +150,6 @@ namespace DSERP_Client_UI
         protected global::System.Web.UI.WebControls.DropDownList ddl_gender;
 
         /// <summary>
-        /// RequiredFieldValidator5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
-
-        /// <summary>
         /// TextBox_dob control.
         /// </summary>
         /// <remarks>
@@ -193,15 +157,6 @@ namespace DSERP_Client_UI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox_dob;
-
-        /// <summary>
-        /// RequiredFieldValidator13 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator13;
 
         /// <summary>
         /// TextBox_CompanyName control.
@@ -213,15 +168,6 @@ namespace DSERP_Client_UI
         protected global::System.Web.UI.WebControls.TextBox TextBox_CompanyName;
 
         /// <summary>
-        /// RequiredFieldValidator8 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator8;
-
-        /// <summary>
         /// TextBox_websiteUrl control.
         /// </summary>
         /// <remarks>
@@ -229,15 +175,6 @@ namespace DSERP_Client_UI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox_websiteUrl;
-
-        /// <summary>
-        /// RequiredFieldValidator7 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
 
         /// <summary>
         /// countySel control.
@@ -294,13 +231,13 @@ namespace DSERP_Client_UI
         protected global::System.Web.UI.WebControls.TextBox TextBox_pin;
 
         /// <summary>
-        /// RequiredFieldValidator18 control.
+        /// RegularExpressionValidator3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator18;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator3;
 
         /// <summary>
         /// TextBox_address control.
@@ -312,15 +249,6 @@ namespace DSERP_Client_UI
         protected global::System.Web.UI.WebControls.TextBox TextBox_address;
 
         /// <summary>
-        /// RequiredFieldValidator25 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator25;
-
-        /// <summary>
         /// TextBox_gst control.
         /// </summary>
         /// <remarks>
@@ -328,15 +256,6 @@ namespace DSERP_Client_UI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox_gst;
-
-        /// <summary>
-        /// RequiredFieldValidator11 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator11;
 
         /// <summary>
         /// ddl_currency control.
@@ -348,15 +267,6 @@ namespace DSERP_Client_UI
         protected global::System.Web.UI.WebControls.DropDownList ddl_currency;
 
         /// <summary>
-        /// RequiredFieldValidator6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
-
-        /// <summary>
         /// Text_password control.
         /// </summary>
         /// <remarks>
@@ -364,15 +274,6 @@ namespace DSERP_Client_UI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Text_password;
-
-        /// <summary>
-        /// RequiredFieldValidator4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
 
         /// <summary>
         /// CheckBox_sendWelcomeMail control.

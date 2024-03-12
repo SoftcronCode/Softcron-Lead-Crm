@@ -136,20 +136,20 @@
                                     <div class="form-group col-md-4">
                                         <label class="form-label" for="first_name">First Name :</label>
                                         <asp:TextBox ID="TextBox_firstName" runat="server" class="form-control" placeholder="Enter Name" />
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox_firstName" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Enter First Name" ForeColor="Red" CssClass="absolute-position"></asp:RequiredFieldValidator>
+                                        <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox_firstName" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Enter First Name" ForeColor="Red" CssClass="absolute-position"></asp:RequiredFieldValidator>--%>
                                     </div>
                                     <!-- Last Name -->
                                     <div class="form-group col-md-4">
                                         <label class="form-label" for="first_name">Last Name :</label>
                                         <asp:TextBox ID="TextBox_lastName" runat="server" class="form-control" placeholder="Enter Name" />
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ControlToValidate="TextBox_lastName" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Enter Last Name" ForeColor="Red" CssClass="absolute-position"></asp:RequiredFieldValidator>
+                                        <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ControlToValidate="TextBox_lastName" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Enter Last Name" ForeColor="Red" CssClass="absolute-position"></asp:RequiredFieldValidator>--%>
                                     </div>
 
                                     <!-- Email -->
                                     <div class="form-group col-md-4">
                                         <label class="form-label" for="email">Email :</label>
                                         <asp:TextBox ID="TextBox_email" runat="server" class="form-control" placeholder="Enter Email" />
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBox_email" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Enter EmailID" ForeColor="Red" CssClass="absolute-position"></asp:RequiredFieldValidator>
+                                        <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBox_email" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Enter EmailID" ForeColor="Red" CssClass="absolute-position"></asp:RequiredFieldValidator>--%>
                                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TextBox_email" ValidationGroup="Group1" ErrorMessage="Invalid email format" Display="Dynamic" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                                     </div>
 
@@ -157,35 +157,36 @@
                                     <div class="form-group col-md-4">
                                         <label class="form-label" for="phone">Phone :</label>
                                         <asp:TextBox ID="TextBox_phone" runat="server" class="form-control" placeholder="Enter Phone" />
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox_phone" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Enter Phone No." ForeColor="Red" CssClass="absolute-position"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="TextBox_phone" ValidationGroup="Group1" ErrorMessage="Please add 10-digit phone number" Display="Dynamic" ForeColor="Red" CssClass="absolute-position" ValidationExpression="^\d{10}$"></asp:RegularExpressionValidator>
+                                        <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox_phone" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Enter Phone No." ForeColor="Red" CssClass="absolute-position"></asp:RequiredFieldValidator>--%>
                                     </div>
 
                                     <!-- Gender -->
                                     <div class="form-group col-lg-4">
                                         <label class="form-label">Customer Gender :</label>
                                         <asp:DropDownList ID="ddl_gender" Class="form-select" runat="server" AutoPostBack="false"></asp:DropDownList>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="ddl_gender" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Select a value" ForeColor="Red" CssClass="absolute-position" InitialValue="0"></asp:RequiredFieldValidator>
+                                        <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="ddl_gender" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Select a value" ForeColor="Red" CssClass="absolute-position" InitialValue="0"></asp:RequiredFieldValidator>--%>
                                     </div>
 
                                     <!-- Date Of Birth -->
                                     <div class="form-group col-md-4">
                                         <label class="form-label" for="dob">Date of Birth :</label>
                                         <asp:TextBox ID="TextBox_dob" runat="server" CssClass="form-control" Type="date"></asp:TextBox>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="TextBox_dob" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Select Date" ForeColor="Red" CssClass="absolute-position"></asp:RequiredFieldValidator>
+                                        <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="TextBox_dob" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Select Date" ForeColor="Red" CssClass="absolute-position"></asp:RequiredFieldValidator>--%>
                                     </div>
 
                                     <!-- Company Name -->
                                     <div class="form-group col-md-4">
                                         <label class="form-label" for="companmy_name">Company Name :</label>
                                         <asp:TextBox ID="TextBox_CompanyName" runat="server" class="form-control" placeholder="Enter Company Name" />
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="TextBox_CompanyName" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Enter Company Name" ForeColor="Red" CssClass="absolute-position"></asp:RequiredFieldValidator>
+                                        <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="TextBox_CompanyName" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Enter Company Name" ForeColor="Red" CssClass="absolute-position"></asp:RequiredFieldValidator>--%>
                                     </div>
 
                                     <!-- Website Name -->
                                     <div class="form-group col-md-4">
                                         <label class="form-label" for="website">Website Url :</label>
                                         <asp:TextBox ID="TextBox_websiteUrl" runat="server" class="form-control" placeholder="Enter Department Name" />
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="TextBox_websiteUrl" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Enter Website Url" ForeColor="Red" CssClass="absolute-position"></asp:RequiredFieldValidator>
+                                        <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="TextBox_websiteUrl" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Enter Website Url" ForeColor="Red" CssClass="absolute-position"></asp:RequiredFieldValidator>--%>
                                     </div>
 
                                     <!-- Country -->
@@ -206,7 +207,7 @@
 
                                     <!-- City -->
                                     <div class="form-group col-md-4" id="city" runat="server">
-                                        <label class="form-label">City</label>
+                                        <label class="form-label">City :</label>
                                         <asp:DropDownList ID="districtSel" runat="server" class="form-select" AutoPostBack="false" size="1">
                                             <asp:ListItem Value="0" Selected="True">-- Select City --</asp:ListItem>
                                         </asp:DropDownList>
@@ -216,14 +217,15 @@
                                     <div class="form-group col-md-4">
                                         <label class="form-label" for="pin">PIN Code :</label>
                                         <asp:TextBox ID="TextBox_pin" runat="server" class="form-control" placeholder="Enter PIN Code" />
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator18" runat="server" ControlToValidate="TextBox_pin" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Enter Pin Code" ForeColor="Red" CssClass="absolute-position"></asp:RequiredFieldValidator>
+                                         <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="TextBox_pin" ValidationGroup="Group1" ErrorMessage="Please enter only numeric values" Display="Dynamic" ForeColor="Red" CssClass="absolute-position" ValidationExpression="^\d+$"></asp:RegularExpressionValidator>
+                                        <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator18" runat="server" ControlToValidate="TextBox_pin" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Enter Pin Code" ForeColor="Red" CssClass="absolute-position"></asp:RequiredFieldValidator>--%>
                                     </div>
 
                                     <!-- address-->
                                     <div class="form-group col-12">
                                         <label class="form-label" for="name">Address :</label>
                                         <asp:TextBox ID="TextBox_address" runat="server" class="form-control" placeholder="Enter Address" TextMode="MultiLine" />
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator25" runat="server" ControlToValidate="TextBox_address" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Enter Address" ForeColor="Red" CssClass="absolute-position"></asp:RequiredFieldValidator>
+                                        <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator25" runat="server" ControlToValidate="TextBox_address" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Enter Address" ForeColor="Red" CssClass="absolute-position"></asp:RequiredFieldValidator>--%>
                                     </div>
 
 
@@ -231,7 +233,7 @@
                                     <div class="form-group col-md-4">
                                         <label class="form-label" for="name">GSTIN Number :</label>
                                         <asp:TextBox ID="TextBox_gst" runat="server" class="form-control" placeholder="Enter Gst" />
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="TextBox_gst" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Enter Gst No." ForeColor="Red" CssClass="absolute-position"></asp:RequiredFieldValidator>
+                                        <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="TextBox_gst" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Enter Gst No." ForeColor="Red" CssClass="absolute-position"></asp:RequiredFieldValidator>--%>
                                     </div>
 
                                     <!-- Currency -->
@@ -242,7 +244,7 @@
                                             <asp:ListItem Value="₹" Text="₹"></asp:ListItem>
                                             <asp:ListItem Value="$" Text="$"></asp:ListItem>
                                         </asp:DropDownList>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="ddl_currency" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Select a value" ForeColor="Red" CssClass="absolute-position" InitialValue="0"></asp:RequiredFieldValidator>
+                                        <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="ddl_currency" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Select a value" ForeColor="Red" CssClass="absolute-position" InitialValue="0"></asp:RequiredFieldValidator>--%>
                                     </div>
 
                                     <!-- Password -->
@@ -250,7 +252,7 @@
                                         <label class="form-label" for="password">Password :</label>
                                         <asp:TextBox ID="Text_password" class="form-control" type="password" runat="server" placeholder="Password"></asp:TextBox>
                                         <i class="toggle-password fa-regular fa-eye"></i>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="Text_password" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Enter Password" ForeColor="Red" CssClass="absolute-position"></asp:RequiredFieldValidator>
+                                        <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="Text_password" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Enter Password" ForeColor="Red" CssClass="absolute-position"></asp:RequiredFieldValidator>--%>
                                     </div>
 
                                     <!-- checkbox -->

@@ -75,7 +75,7 @@
                     <a href="#" class="b-brand text-primary">
                         <!-- ========   Change logo from here   ============ -->
                         <%--<img src="/assets/img/logo.png" height="50" width="198">--%>
-                        <img src="/assets/img/getmyca-logo.png" height="60" width="150">
+                        <img src="/assets/img/logo.png" height="60" width="150">
                     </a>
                 </div>
                 <div class="navbar-content pc-trigger" data-simplebar="init">
@@ -480,8 +480,7 @@
             <div class="footer-wrapper container-fluid">
                 <div class="row">
                     <div class="col my-1 text-center">
-                        <%--<p class="m-0">Copyright © <a href="https://www.softcron.com/">Softcron Technology</a></p>--%>
-                        <p class="m-0">Copyright © <a href="https://www.getmyca.com/">GetmyCA</a></p>
+                        <p class="m-0">Copyright © <a href="https://www.softcron.com/">Softcron Technology</a></p>
                     </div>
                 </div>
             </div>
