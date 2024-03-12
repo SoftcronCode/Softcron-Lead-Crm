@@ -30,9 +30,8 @@
                     <div class="card my-5">
                         <div class="card-body">
                             <div class="text-center">
-                                <a href="#">
-                                    <%--<img src="/assets/img/logo.png" alt="logo" height="60" width="190" />--%>
-                                    <img src="/assets/img/getmyca-logo.png" alt="logo" height="70" width="150" />
+                                <a href="#">                                    
+                                    <img src="/assets/img/logo.png" alt="logo" height="70" width="150" />
                                 </a>
                             </div>
                             <h4 class="text-center f-w-500 my-4">Login with your UserName</h4>

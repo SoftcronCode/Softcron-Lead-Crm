@@ -211,9 +211,6 @@ namespace DSERP_Client_UI
 
 
 
-
-
-
         #region All Methods For Add, Update Button And Save data 
 
         // Method call when Button save Click to insert the lead data.
@@ -377,10 +374,6 @@ namespace DSERP_Client_UI
         }
 
         #endregion
-
-
-
-
 
 
 
@@ -843,8 +836,6 @@ namespace DSERP_Client_UI
         }
 
         #endregion
-
-
 
 
 
