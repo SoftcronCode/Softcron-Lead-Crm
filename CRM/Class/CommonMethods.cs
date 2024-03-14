@@ -23,6 +23,7 @@ namespace DSERP_Client_UI
         string Url = ConfigurationManager.AppSettings["BaseUrl"].ToString();
         compress compressobj = new compress();  // Unzip Method Class Object.
 
+        // Method to Delete Record By Id.
         public async Task<(bool Success, string ErrorMessage)> DeleteById(int ID, string tablename, string userID, string ipaddress)
         {
 
@@ -106,7 +107,7 @@ namespace DSERP_Client_UI
             }
         }
 
-
+        // Method to Save Data to Database Table.
         public async Task<(bool Success, string ErrorMessage)> SaveData(string UserID, string ipAddress, string Action, int ID, string tablename, List<ColumnData> textBoxDataList)
         {
 
@@ -178,7 +179,7 @@ namespace DSERP_Client_UI
         }
 
 
-
+        // Method to Get Records By Id.
         public async Task<(string ErrorMessage, DataTable)> GetRecordByID(string UserID, string ipAddress, string TableName, int ID)
         {
             string action = "GETBYID";
@@ -258,7 +259,7 @@ namespace DSERP_Client_UI
             }
         }
 
-
+        // Method to Bind DropDown 
         public async Task<(string ErrorMessage, DataTable)> BindDropDown(string TableName, string ColumnName, string UserID, string ipAddress)
         {
             try
@@ -336,7 +337,7 @@ namespace DSERP_Client_UI
             }
         }
 
-
+        // Method to Get the Records and bind the Data to DataTable.
         public async Task<(string ErrorMessage, DataTable)> BindDataTable(string ApiUrl, string UserID, string ipAddress)
         {
             using (var httpClient = new HttpClient())
@@ -400,7 +401,7 @@ namespace DSERP_Client_UI
             }
         }
 
-
+        // Method to Get All Data From Table.
         public async Task<(string ErrorMessage, DataTable)> SelectAllData(string TableName, string UserID, string ipAddress)
         {
             string action = "SELECT";
@@ -481,7 +482,7 @@ namespace DSERP_Client_UI
             }
         }
 
-
+        // a common method that take api url and the data to perform different action based on data.
         public async Task<(string ErrorMessage, DataTable)> CommonMethod(string apiUrl, object data)
         {
             try
@@ -534,7 +535,7 @@ namespace DSERP_Client_UI
             }
         }
 
-
+        // Method to Update the Status for DataTable Row.
         public async Task<(string ErrorMessage, DataTable)> UpdateStatus(string TableName, int ID, int statusValue, string userID, string ipaddress)
         {
             string action = "UPDATE_STATUS";

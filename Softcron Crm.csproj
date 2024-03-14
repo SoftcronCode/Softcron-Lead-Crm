@@ -153,8 +153,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AddNewCustomer.aspx" />
-    <Content Include="AddPayment.aspx" />
+    <Content Include="CRM\View\AddNewCustomer.aspx" />
+    <Content Include="CRM\View\AddPayment.aspx" />
     <Content Include="assets\css\chosen-v1.8.7.min.css" />
     <Content Include="assets\css\datatable\buttons.dataTables-v2.4.1.min.css" />
     <Content Include="assets\css\datatable\dataTables.dateTime-v1.5.1.min.css" />
@@ -189,132 +189,134 @@
     <Content Include="assets\js\plugins\ckeditor.js" />
     <Content Include="assets\js\popper.min.js" />
     <Content Include="assets\js\simplebar.min.js" />
+    <Content Include="assets\js\toastr\Validation.js" />
     <Content Include="assets\js\toastr\toastr-msg.js" />
     <Content Include="assets\js\toastr\toastr-v2.1.3.min.js" />
-    <Content Include="AssignFormToGroup.aspx" />
-    <Content Include="AssignGroupToUser.aspx" />
-    <Content Include="company_profile.aspx" />
+    <Content Include="CRM\UserManagment\AssignFormToGroup.aspx" />
+    <Content Include="CRM\UserManagment\AssignGroupToUser.aspx" />
+    <Content Include="CRM\View\company_profile.aspx" />
     <Content Include="Content\bootstrap-chosen.css" />
     <Content Include="Content\chosen-sprite%402x.png" />
     <Content Include="Content\chosen-sprite.png" />
-    <Content Include="CreateUser.aspx" />
-    <Content Include="Dashboard.aspx" />
-    <Content Include="Default.aspx" />
-    <Content Include="Followup_Reporting.aspx" />
+    <Content Include="CRM\UserManagment\CreateUser.aspx" />
+    <Content Include="CRM\View\Dashboard.aspx" />
+    <Content Include="CRM\View\Default.aspx" />
+    <Content Include="CRM\Report\Followup_Reporting.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Invoice.aspx" />
-    <Content Include="View\Login\ForgotPassword.aspx" />
-    <Content Include="View\Login\Login.aspx" />
+    <Content Include="CRM\Template\Invoice.aspx" />
+    <Content Include="CRM\Login\ForgotPassword.aspx" />
+    <Content Include="CRM\Login\Login.aspx" />
     <Content Include="Content\bootstrap-chosen.scss" />
     <Content Include="Content\bootstrap-chosen.less" />
-    <Content Include="AddNewLead.aspx" />
-    <Content Include="PaymentReporting.aspx" />
-    <Content Include="QuotationMaster.aspx" />
+    <Content Include="CRM\View\AddNewLead.aspx" />
+    <Content Include="CRM\Report\PaymentReporting.aspx" />
+    <Content Include="CRM\Template\QuotationMaster.aspx" />
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
-    <Content Include="Sales.aspx" />
-    <Content Include="SalesReporting.aspx" />
+    <Content Include="CRM\View\Sales.aspx" />
+    <Content Include="CRM\Report\SalesReporting.aspx" />
     <Content Include="Scripts\jquery-3.7.1.js" />
     <Content Include="Scripts\jquery-3.7.1.min.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.js" />
     <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
-    <Content Include="SendQuotation.aspx" />
+    <Content Include="CRM\View\SendQuotation.aspx" />
     <Content Include="Scripts\chosen.jquery.js" />
     <Content Include="Scripts\chosen.jquery.min.js" />
-    <Content Include="SelectQuotation.aspx" />
-    <Content Include="View\Login\ResetPassword.aspx" />
-    <Content Include="View\Login\VerificationCode.aspx" />
+    <Content Include="CRM\View\SelectQuotation.aspx" />
+    <Content Include="CRM\Login\ResetPassword.aspx" />
+    <Content Include="CRM\Login\VerificationCode.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddNewCustomer.aspx.cs">
+    <Compile Include="CRM\View\AddNewCustomer.aspx.cs">
       <DependentUpon>AddNewCustomer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AddNewCustomer.aspx.designer.cs">
+    <Compile Include="CRM\View\AddNewCustomer.aspx.designer.cs">
       <DependentUpon>AddNewCustomer.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AddPayment.aspx.cs">
+    <Compile Include="CRM\View\AddPayment.aspx.cs">
       <DependentUpon>AddPayment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AddPayment.aspx.designer.cs">
+    <Compile Include="CRM\View\AddPayment.aspx.designer.cs">
       <DependentUpon>AddPayment.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\Mail.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="AssignFormToGroup.aspx.cs">
+    <Compile Include="CRM\UserManagment\AssignFormToGroup.aspx.cs">
       <DependentUpon>AssignFormToGroup.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AssignFormToGroup.aspx.designer.cs">
+    <Compile Include="CRM\UserManagment\AssignFormToGroup.aspx.designer.cs">
       <DependentUpon>AssignFormToGroup.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AssignGroupToUser.aspx.cs">
+    <Compile Include="CRM\UserManagment\AssignGroupToUser.aspx.cs">
       <DependentUpon>AssignGroupToUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AssignGroupToUser.aspx.designer.cs">
+    <Compile Include="CRM\UserManagment\AssignGroupToUser.aspx.designer.cs">
       <DependentUpon>AssignGroupToUser.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CommonMethods.cs" />
-    <Compile Include="company_profile.aspx.cs">
+    <Compile Include="CRM\Class\CommonMethods.cs" />
+    <Compile Include="CRM\View\company_profile.aspx.cs">
       <DependentUpon>company_profile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="company_profile.aspx.designer.cs">
+    <Compile Include="CRM\View\company_profile.aspx.designer.cs">
       <DependentUpon>company_profile.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Compress.cs" />
-    <Compile Include="CreateUser.aspx.cs">
+    <Compile Include="CRM\Class\Compress.cs" />
+    <Compile Include="CRM\UserManagment\CreateUser.aspx.cs">
       <DependentUpon>CreateUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CreateUser.aspx.designer.cs">
+    <Compile Include="CRM\UserManagment\CreateUser.aspx.designer.cs">
       <DependentUpon>CreateUser.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Dashboard.aspx.cs">
+    <Compile Include="CRM\View\Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Dashboard.aspx.designer.cs">
+    <Compile Include="CRM\View\Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.cs">
+    <Compile Include="CRM\View\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Default.aspx.designer.cs">
+    <Compile Include="CRM\View\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Followup_Reporting.aspx.cs">
+    <Compile Include="CRM\Report\Followup_Reporting.aspx.cs">
       <DependentUpon>Followup_Reporting.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Followup_Reporting.aspx.designer.cs">
+    <Compile Include="CRM\Report\Followup_Reporting.aspx.designer.cs">
       <DependentUpon>Followup_Reporting.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Invoice.aspx.cs">
+    <Compile Include="CRM\Template\Invoice.aspx.cs">
       <DependentUpon>Invoice.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Invoice.aspx.designer.cs">
+    <Compile Include="CRM\Template\Invoice.aspx.designer.cs">
       <DependentUpon>Invoice.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\Login\ForgotPassword.aspx.cs">
+    <Compile Include="CRM\Login\ForgotPassword.aspx.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\Login\ForgotPassword.aspx.designer.cs">
+    <Compile Include="CRM\Login\ForgotPassword.aspx.designer.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\Login\Login.aspx.cs">
+    <Compile Include="CRM\Login\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\Login\Login.aspx.designer.cs">
+    <Compile Include="CRM\Login\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPage.Master.cs">
@@ -324,69 +326,69 @@
     <Compile Include="MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
-    <Compile Include="AddNewLead.aspx.cs">
+    <Compile Include="CRM\View\AddNewLead.aspx.cs">
       <DependentUpon>AddNewLead.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AddNewLead.aspx.designer.cs">
+    <Compile Include="CRM\View\AddNewLead.aspx.designer.cs">
       <DependentUpon>AddNewLead.aspx</DependentUpon>
     </Compile>
-    <Compile Include="PaymentReporting.aspx.cs">
+    <Compile Include="CRM\Report\PaymentReporting.aspx.cs">
       <DependentUpon>PaymentReporting.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PaymentReporting.aspx.designer.cs">
+    <Compile Include="CRM\Report\PaymentReporting.aspx.designer.cs">
       <DependentUpon>PaymentReporting.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuotationMaster.aspx.cs">
+    <Compile Include="CRM\Template\QuotationMaster.aspx.cs">
       <DependentUpon>QuotationMaster.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="QuotationMaster.aspx.designer.cs">
+    <Compile Include="CRM\Template\QuotationMaster.aspx.designer.cs">
       <DependentUpon>QuotationMaster.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Sales.aspx.cs">
+    <Compile Include="CRM\View\Sales.aspx.cs">
       <DependentUpon>Sales.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Sales.aspx.designer.cs">
+    <Compile Include="CRM\View\Sales.aspx.designer.cs">
       <DependentUpon>Sales.aspx</DependentUpon>
     </Compile>
-    <Compile Include="SalesReporting.aspx.cs">
+    <Compile Include="CRM\Report\SalesReporting.aspx.cs">
       <DependentUpon>SalesReporting.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SalesReporting.aspx.designer.cs">
+    <Compile Include="CRM\Report\SalesReporting.aspx.designer.cs">
       <DependentUpon>SalesReporting.aspx</DependentUpon>
     </Compile>
-    <Compile Include="SendQuotation.aspx.cs">
+    <Compile Include="CRM\View\SendQuotation.aspx.cs">
       <DependentUpon>SendQuotation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SendQuotation.aspx.designer.cs">
+    <Compile Include="CRM\View\SendQuotation.aspx.designer.cs">
       <DependentUpon>SendQuotation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Response.cs" />
-    <Compile Include="SelectQuotation.aspx.cs">
+    <Compile Include="CRM\Class\Response.cs" />
+    <Compile Include="CRM\View\SelectQuotation.aspx.cs">
       <DependentUpon>SelectQuotation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SelectQuotation.aspx.designer.cs">
+    <Compile Include="CRM\View\SelectQuotation.aspx.designer.cs">
       <DependentUpon>SelectQuotation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\Login\ResetPassword.aspx.cs">
+    <Compile Include="CRM\Login\ResetPassword.aspx.cs">
       <DependentUpon>ResetPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\Login\ResetPassword.aspx.designer.cs">
+    <Compile Include="CRM\Login\ResetPassword.aspx.designer.cs">
       <DependentUpon>ResetPassword.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\Login\VerificationCode.aspx.cs">
+    <Compile Include="CRM\Login\VerificationCode.aspx.cs">
       <DependentUpon>VerificationCode.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\Login\VerificationCode.aspx.designer.cs">
+    <Compile Include="CRM\Login\VerificationCode.aspx.designer.cs">
       <DependentUpon>VerificationCode.aspx</DependentUpon>
     </Compile>
   </ItemGroup>

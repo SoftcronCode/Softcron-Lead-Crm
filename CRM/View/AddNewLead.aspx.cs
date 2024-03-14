@@ -1142,8 +1142,8 @@ namespace DSERP_Client_UI
             var apiUrl = Url + "ERP/Lead/GetDocsByID";
             var data = new
             {
-                customerID = LeadID,
-                leadID = 0,
+                customerID = 0,
+                leadID = LeadID,
                 objCommon = new
                 {
                     insertedUserID = UserID,
@@ -1212,7 +1212,7 @@ namespace DSERP_Client_UI
                     string contentType = FileUpload.PostedFile.ContentType;
                     string fileExtension = Path.GetExtension(FileUpload.FileName.ToString());
 
-                    string[] allowedExtensions = { ".png", ".jpeg", ".xlsx", ".docx", ".pdf" };
+                    string[] allowedExtensions = { ".png", ".jpeg", ".xlsx", ".docx", ".pdf", ".csv" };
                     if (Array.IndexOf(allowedExtensions, fileExtension) != -1)
                     {
                         string targetDirectory = Server.MapPath("~/assets/docs/lead");
@@ -1229,7 +1229,7 @@ namespace DSERP_Client_UI
 
                         List<ColumnData> textBoxDataList = new List<ColumnData>
                         {
-                           new ColumnData { columnValue = LeadID, columnName = "customer_detailsid", columnDataType = "105002" },
+                           new ColumnData { columnValue = LeadID, columnName = "new_leadid", columnDataType = "105002" },
                            new ColumnData { columnValue = uniqueFilename, columnName = "filename", columnDataType = "105001" },
                            new ColumnData { columnValue = UserID, columnName = "created_by", columnDataType = "105002" }
                         };
@@ -1296,12 +1296,23 @@ namespace DSERP_Client_UI
             {
                 string UserID = Request.Cookies["userid"]?.Value;
                 string ipAddress = Request.UserHostAddress;
-                int docsId = Convert.ToInt32(e.CommandArgument);
+                string[] arguments = e.CommandArgument.ToString().Split(',');
+                int docsId = Convert.ToInt32(arguments[0]);
+                string filename = arguments[1];
                 string tablename = "docs_table";
                 var (success, ErrorMessage) = await commonMethods.DeleteById(docsId, tablename, UserID, ipAddress);
                 if (success)
                 {
+                    string targetDirectory = Server.MapPath("~/assets/docs/lead");
+                    string filePath = Path.Combine(targetDirectory, filename);
                     string LeadID = HiddenField_lead_ID.Value;
+
+                    // Delete the file from the file location
+                    if(File.Exists(filePath))
+                    {
+                        File.Delete(filePath);
+                    }
+
                     await BindDocsRepeater(LeadID);
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "Success", $"<script>success({JsonConvert.SerializeObject("Success : " + ErrorMessage)})</script>", false);
                 }
@@ -1312,11 +1323,6 @@ namespace DSERP_Client_UI
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "showDocsModal", "$(document).ready(function() { showDocsModal(); });", true);
             }
         }
-
-
-
-
-
 
         #endregion
 

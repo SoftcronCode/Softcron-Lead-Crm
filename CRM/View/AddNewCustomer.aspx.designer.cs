@@ -276,6 +276,15 @@ namespace DSERP_Client_UI
         protected global::System.Web.UI.WebControls.TextBox Text_password;
 
         /// <summary>
+        /// checkbox_sendMail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl checkbox_sendMail;
+
+        /// <summary>
         /// CheckBox_sendWelcomeMail control.
         /// </summary>
         /// <remarks>
