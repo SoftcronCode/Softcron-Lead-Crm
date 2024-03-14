@@ -134,9 +134,9 @@ namespace DSERP_Client_UI
             try
             {
                 // Parse the date using the specified format "yyyy-MM-dd"
-                DateTime dateValue = DateTime.ParseExact(TextBox_dob.Text, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                DateTime dateOfBirth = DateTime.ParseExact(TextBox_dob.Text, "yyyy-MM-dd", CultureInfo.InvariantCulture);
                 // Convert the date back to the desired string format "dd-MM-yyyy"
-                string formattedDateOfBirth = dateValue.ToString("dd-MM-yyyy");
+                string formattedDateOfBirth = dateOfBirth.ToString("dd-MM-yyyy");
 
 
                 // Retrieve values from form fields
@@ -149,6 +149,7 @@ namespace DSERP_Client_UI
                 string State = HiddenField_state.Value;
                 string City = HiddenField_city.Value;
                 string leadid = hiddenField_leadid.Value;
+                bool sendWelcomeMail = CheckBox_sendWelcomeMail.Checked;
 
                 List<ColumnData> textBoxDataList = new List<ColumnData>
             {
@@ -175,6 +176,7 @@ namespace DSERP_Client_UI
                     textBoxDataList.Add(new ColumnData { columnValue = leadid, columnName = "new_leadid", columnDataType = "105002" });
                 }
 
+                // Method call to save the data to databse.
                 var (Success, ErrorMessage) = await commonMethods.SaveData(UserID, ipAddress, action, id, tablename, textBoxDataList);
                 if (Success)
                 {
@@ -190,6 +192,12 @@ namespace DSERP_Client_UI
                     {
                         Session["SuccessMessage"] = ErrorMessage;
                         Response.Redirect("/add-new-customer");
+                    }
+
+                    // code to send welcome mail to customer
+                    if (sendWelcomeMail)
+                    {
+
                     }
                 }
                 else
@@ -384,6 +392,8 @@ namespace DSERP_Client_UI
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "showAddNewLeadModal", "$(document).ready(function() { showAddNewLeadModal(); });", true);
                 ButtonUpdateCustomer.Attributes["style"] = "display: block;";
                 ButtonSubmitCustomer.Attributes["style"] = "display: none;";
+                checkbox_sendMail.Attributes["style"] = "display: none;";
+
 
             }
             else
@@ -784,7 +794,7 @@ namespace DSERP_Client_UI
                     string contentType = FileUpload.PostedFile.ContentType;
                     string fileExtension = Path.GetExtension(FileUpload.FileName.ToString());
 
-                    string[] allowedExtensions = { ".png", ".jpeg", ".xlsx", ".docx", ".pdf" };
+                    string[] allowedExtensions = { ".png", ".jpeg", ".xlsx", ".docx", ".pdf", ".csv" };
                     if (Array.IndexOf(allowedExtensions, fileExtension) != -1)
                     {
                         string targetDirectory = Server.MapPath("~/assets/docs/customer");
@@ -868,11 +878,22 @@ namespace DSERP_Client_UI
             {
                 string UserID = Request.Cookies["userid"]?.Value;
                 string ipAddress = Request.UserHostAddress;
-                int docsId = Convert.ToInt32(e.CommandArgument);
+                string[] arguments = e.CommandArgument.ToString().Split(',');
+                int docsId = Convert.ToInt32(arguments[0]);
+                string filename = arguments[1];
                 string tablename = "docs_table";
                 var (success, ErrorMessage) = await commonMethods.DeleteById(docsId, tablename, UserID, ipAddress);
                 if (success)
                 {
+                    string targetDirectory = Server.MapPath("~/assets/docs/customer");
+                    string filePath = Path.Combine(targetDirectory, filename);
+
+                    // Delete the file from the file location
+                    if (File.Exists(filePath))
+                    {
+                        File.Delete(filePath);
+                    }
+
                     string customerID = HiddenField_customerID.Value;
                     await BindDocsRepeater(customerID);
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "Success", $"<script>success({JsonConvert.SerializeObject("Success : " + ErrorMessage)})</script>", false);

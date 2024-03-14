@@ -167,9 +167,9 @@
 
                                     <div class="form-group col-md-4">
                                         <label class="form-label" for="name">Phone No. :</label>
-                                        <asp:TextBox ID="TextBox_phone" runat="server" class="form-control" placeholder="Enter Phone" />
+                                        <asp:TextBox ID="TextBox_phone" runat="server" class="form-control" placeholder="Enter Phone" onkeypress="return validatePhoneNumber(event)"/>
                                         <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="TextBox_phone" ValidationGroup="Group1" ErrorMessage="Please add 10-digit phone number" Display="Dynamic" ForeColor="Red" CssClass="absolute-position" ValidationExpression="^\d{10}$"></asp:RegularExpressionValidator>
-                                       <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBox_phone" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Enter Phone Number" ForeColor="Red" CssClass="absolute-position"></asp:RequiredFieldValidator>--%>
+                                        <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBox_phone" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Enter Phone Number" ForeColor="Red" CssClass="absolute-position"></asp:RequiredFieldValidator>--%>
                                     </div>
 
 
@@ -301,7 +301,7 @@
 
 
             <!-- View Lead Data Modal Start -->
-            <div class="modal fade" id="ViewLeadModal" tabindex="-1" aria-labelledby="ViewLeadModalLabel" aria-hidden="true">
+            <div class="modal fade" id="ViewLeadModal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="ViewLeadModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl modal-dialog-scrollable">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -317,7 +317,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" id="pills-notes-tab" data-bs-toggle="pill" href="#pills-notes" role="tab" aria-controls="pills-notes" aria-selected="false">Notes
-                               <span class="badge bg-light text-dark">
+                                     <span class="badge bg-light text-dark">
                                    <asp:Label ID="lbl_notesCount" runat="server" Text=""></asp:Label></span>
                                     </a>
                                 </li>
@@ -467,9 +467,7 @@
                                 <div class="tab-pane fade" id="pills-notes" role="tabpanel" aria-labelledby="pills-notes-tab">
                                     <div class="container-fluid">
                                         <div class="row">
-
                                             <asp:HiddenField ID="HiddenField_noteid" runat="server" />
-
                                             <div class="form-group col-12">
                                                 <asp:TextBox ID="TextBox_note" runat="server" class="form-control" placeholder="Enter Note" TextMode="MultiLine" />
                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="TextBox_note" ValidationGroup="Group3" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Enter Note" ForeColor="Red" CssClass="absolute-position"></asp:RequiredFieldValidator>
@@ -494,7 +492,7 @@
                                                         <asp:LinkButton ID="EditButton" runat="server" CommandName="Edit" CommandArgument='<%# Eval("notes_tableid") %>' CssClass="float-end me-2"><i class="fa-regular fa-pen-to-square"></i></asp:LinkButton>
                                                         <a href="#">
                                                             <h5 class="media-heading tw-font-semibold mb-0"><%# Eval("created_by") %></h5>
-                                                            <span class="tw-text-sm tw-text-neutral-500">Note added: <%# Eval("created_datetime") %></span>
+                                                            <span class="tw-text-sm tw-text-neutral-500">Note added : <%# Eval("created_datetime") %></span>
                                                         </a>
                                                         <div data-note-description="4" class="text-muted mtop10"><%# Eval("note_text") %></div>
                                                     </div>
@@ -529,7 +527,7 @@
                                                             <a href="/assets/docs/lead/<%# Eval("filename") %>" target="_blank" class="fs-5"><%# Eval("filename") %></a>
                                                         </div>
                                                         <div class="col-lg-2 text-end">
-                                                            <asp:LinkButton ID="DeleteDocs" runat="server" CommandName="Delete" CommandArgument='<%# Eval("docs_tableid") %>' CssClass="text-danger"><i class="fa fa fa-times"></i></asp:LinkButton>
+                                                            <asp:LinkButton ID="DeleteDocs" runat="server" CommandName="Delete" CommandArgument='<%# $"{Eval("docs_tableid")},{Eval("filename")}" %>' CssClass="text-danger"><i class="fa fa fa-times"></i></asp:LinkButton>
                                                         </div>
                                                         <div class="clearfix"></div>
                                                         <hr>
@@ -560,7 +558,7 @@
 
     <!-- Country Js File -->
     <script src="/assets/js/countries.js"></script>
-
+     <script src="/assets/js/toastr/Validation.js"></script>
     <script type="text/javascript">
         // DataTable Code
         $(document).ready(function () {

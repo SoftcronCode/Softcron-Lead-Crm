@@ -156,8 +156,8 @@
                                     <!-- Customer Phone -->
                                     <div class="form-group col-md-4">
                                         <label class="form-label" for="phone">Phone :</label>
-                                        <asp:TextBox ID="TextBox_phone" runat="server" class="form-control" placeholder="Enter Phone" />
-                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="TextBox_phone" ValidationGroup="Group1" ErrorMessage="Please add 10-digit phone number" Display="Dynamic" ForeColor="Red" CssClass="absolute-position" ValidationExpression="^\d{10}$"></asp:RegularExpressionValidator>
+                                        <asp:TextBox ID="TextBox_phone" runat="server" class="form-control" placeholder="Enter Phone" onkeypress="return validatePhoneNumber(event)" />
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="TextBox_phone" ValidationGroup="Group1" ErrorMessage="Please add 10-digit phone number" Display="Dynamic" ForeColor="Red" ValidationExpression="^\d{10}$"></asp:RegularExpressionValidator>
                                         <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox_phone" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Enter Phone No." ForeColor="Red" CssClass="absolute-position"></asp:RequiredFieldValidator>--%>
                                     </div>
 
@@ -216,8 +216,8 @@
                                     <!-- PIN -->
                                     <div class="form-group col-md-4">
                                         <label class="form-label" for="pin">PIN Code :</label>
-                                        <asp:TextBox ID="TextBox_pin" runat="server" class="form-control" placeholder="Enter PIN Code" />
-                                         <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="TextBox_pin" ValidationGroup="Group1" ErrorMessage="Please enter only numeric values" Display="Dynamic" ForeColor="Red" CssClass="absolute-position" ValidationExpression="^\d+$"></asp:RegularExpressionValidator>
+                                        <asp:TextBox ID="TextBox_pin" runat="server" class="form-control" placeholder="Enter PIN Code" onkeypress="return validatePinCode(event)"/>
+                                       <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="TextBox_pin" ValidationGroup="Group1" ErrorMessage="Please add 6-digit Pin Code" Display="Dynamic" ForeColor="Red" ValidationExpression="^\d{6}$"></asp:RegularExpressionValidator>
                                         <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator18" runat="server" ControlToValidate="TextBox_pin" ValidationGroup="Group1" SetFocusOnError="True" Display="Dynamic" ErrorMessage="Enter Pin Code" ForeColor="Red" CssClass="absolute-position"></asp:RequiredFieldValidator>--%>
                                     </div>
 
@@ -256,9 +256,9 @@
                                     </div>
 
                                     <!-- checkbox -->
-                                    <div class="form-group">
+                                    <div class="form-group" id="checkbox_sendMail" runat="server" style="display: block">
                                         <div class="form-check">
-                                            <asp:CheckBox runat="server" CssClass="form-check-input" ID="CheckBox_sendWelcomeMail" />
+                                            <asp:CheckBox ID="CheckBox_sendWelcomeMail" runat="server" CssClass="form-check-input" />
                                             <label for="CheckBox_sendWelcomeMail">Send Welcome Mail</label>
                                         </div>
                                     </div>
@@ -519,7 +519,7 @@
                                                     <a href="/assets/docs/customer/<%# Eval("filename") %>" target="_blank" class="fs-5"><%# Eval("filename") %></a>
                                                 </div>
                                                 <div class="col-lg-2 text-end">
-                                                    <asp:LinkButton ID="DeleteDocs" runat="server" CommandName="Delete" CommandArgument='<%# Eval("docs_tableid") %>' CssClass="text-danger"><i class="fa fa fa-times"></i></asp:LinkButton>
+                                                    <asp:LinkButton ID="DeleteDocs" runat="server" CommandName="Delete" CommandArgument='<%# $"{Eval("docs_tableid")},{Eval("filename")}" %>' CssClass="text-danger"><i class="fa fa fa-times"></i></asp:LinkButton>
                                                 </div>
                                                 <div class="clearfix"></div>
                                                 <hr>
@@ -529,8 +529,6 @@
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -551,6 +549,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <!-- script to load countries, state, city -->
     <script src="/assets/js/countries.js"></script>
+    <script src="/assets/js/toastr/Validation.js"></script>
     <script>
         $(document).ready(function () {
             $('[data-bs-toggle="tooltip"]').tooltip();
@@ -561,13 +560,12 @@
     <script type="text/javascript">
         function saveSelectedValues() {
             var countyDropdown = document.getElementById("<%= countySel.ClientID %>");
-        var stateDropdown = document.getElementById("<%= stateSel.ClientID %>");
-        var districtDropdown = document.getElementById("<%= districtSel.ClientID %>");
+            var stateDropdown = document.getElementById("<%= stateSel.ClientID %>");
+            var districtDropdown = document.getElementById("<%= districtSel.ClientID %>");
 
-        var hiddenCounty = document.getElementById("<%= HiddenField_country.ClientID %>");
-        var hiddenState = document.getElementById("<%= HiddenField_state.ClientID %>");
-        var hiddenDistrict = document.getElementById("<%= HiddenField_city.ClientID %>");
-
+            var hiddenCounty = document.getElementById("<%= HiddenField_country.ClientID %>");
+            var hiddenState = document.getElementById("<%= HiddenField_state.ClientID %>");
+            var hiddenDistrict = document.getElementById("<%= HiddenField_city.ClientID %>");
 
 
             var countryddlselectedValue = countyDropdown.value;
@@ -687,9 +685,6 @@
                     stateSelection.disabled = true;
                     citySelection.disabled = true;
                 }
-
-
-
             };
 
             // todo : state change
@@ -787,33 +782,33 @@
         // Function to clear input fields
         function clearInputFields() {
             document.getElementById('<%= hiddenField_leadid.ClientID %>').value = '';
-        document.getElementById('<%= hiddenField_customer_id.ClientID %>').value = '';
-        document.getElementById('<%= TextBox_firstName.ClientID %>').value = '';
-        document.getElementById('<%= TextBox_lastName.ClientID %>').value = '';
-        document.getElementById('<%= TextBox_email.ClientID %>').value = '';
-        document.getElementById('<%= TextBox_phone.ClientID %>').value = '';
-        document.getElementById('<%= TextBox_dob.ClientID %>').value = '';
-        document.getElementById('<%= TextBox_CompanyName.ClientID %>').value = '';
-        document.getElementById('<%= TextBox_websiteUrl.ClientID %>').value = '';
-        document.getElementById('<%= TextBox_pin.ClientID %>').value = '';
-        document.getElementById('<%= TextBox_address.ClientID %>').value = '';
-        document.getElementById('<%= TextBox_gst.ClientID %>').value = '';
-        document.getElementById('<%= Text_password.ClientID %>').value = '';
-        document.getElementById('<%= CheckBox_sendWelcomeMail.ClientID %>').value = '';
+            document.getElementById('<%= hiddenField_customer_id.ClientID %>').value = '';
+            document.getElementById('<%= TextBox_firstName.ClientID %>').value = '';
+            document.getElementById('<%= TextBox_lastName.ClientID %>').value = '';
+            document.getElementById('<%= TextBox_email.ClientID %>').value = '';
+            document.getElementById('<%= TextBox_phone.ClientID %>').value = '';
+            document.getElementById('<%= TextBox_dob.ClientID %>').value = '';
+            document.getElementById('<%= TextBox_CompanyName.ClientID %>').value = '';
+            document.getElementById('<%= TextBox_websiteUrl.ClientID %>').value = '';
+            document.getElementById('<%= TextBox_pin.ClientID %>').value = '';
+            document.getElementById('<%= TextBox_address.ClientID %>').value = '';
+            document.getElementById('<%= TextBox_gst.ClientID %>').value = '';
+            document.getElementById('<%= Text_password.ClientID %>').value = '';
+            document.getElementById('<%= CheckBox_sendWelcomeMail.ClientID %>').value = '';
 
-        document.getElementById('<%= ddl_gender.ClientID %>').value = '0';
-        document.getElementById('<%= countySel.ClientID %>').value = '0';
-        document.getElementById('<%= stateSel.ClientID %>').value = '0';
-        document.getElementById('<%= districtSel.ClientID %>').value = '0';
-        document.getElementById('<%= ddl_currency.ClientID %>').value = '0';
+            document.getElementById('<%= ddl_gender.ClientID %>').value = '0';
+            document.getElementById('<%= countySel.ClientID %>').value = '0';
+            document.getElementById('<%= stateSel.ClientID %>').value = '0';
+            document.getElementById('<%= districtSel.ClientID %>').value = '0';
+            document.getElementById('<%= ddl_currency.ClientID %>').value = '0';
 
-        stateSelection = document.querySelector("#ContentPlaceHolder1_stateSel"),
-            citySelection = document.querySelector("#ContentPlaceHolder1_districtSel");
-        stateSelection.disabled = false;
-        citySelection.disabled = false;
+            stateSelection = document.querySelector("#ContentPlaceHolder1_stateSel"),
+                citySelection = document.querySelector("#ContentPlaceHolder1_districtSel");
+            stateSelection.disabled = false;
+            citySelection.disabled = false;
 
-        var buttonSubmit = document.getElementById('<%= ButtonSubmitCustomer.ClientID %>');
-        var buttonUpdate = document.getElementById('<%= ButtonUpdateCustomer.ClientID %>');
+            var buttonSubmit = document.getElementById('<%= ButtonSubmitCustomer.ClientID %>');
+            var buttonUpdate = document.getElementById('<%= ButtonUpdateCustomer.ClientID %>');
             buttonSubmit.style.display = 'block';
             buttonUpdate.style.display = 'none';
         }
